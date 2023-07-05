@@ -1,0 +1,70 @@
+/* If the screen size is 401px or more, set the size of the cards to full size */
+@media only screen and (min-width: 501px) 
+    .flippable-card-container 
+        height: 300px
+        width: 500px
+
+/* If the screen size is 400px or less, set the size of the cards to half size */
+@media only screen and (max-width: 500px) 
+    .flippable-card-container 
+        height: 150px
+        width: 250px
+
+.flippable-card-container 
+    /* === Sizing === */
+    perspective: 1000px
+    
+    
+.card 
+    /* Sizing */
+    height: 100%
+    width: 100%
+
+    transform-style: preserve-3d
+
+    /* Content Alignment */
+    position: relative
+
+    user-select: none
+    cursor: pointer
+
+.card-front,.card-back 
+    /* Sizing */
+    height: 100%
+    width: 100%
+
+    -webkit-backface-visibility: hidden
+    backface-visibility: hidden
+
+    /* Alignment */
+    position: absolute
+
+.card-front
+    background: black no-repeat center center
+    background-size: contain
+
+.card-back 
+    transform: rotateY(180deg)
+
+.flip-icon 
+    position: absolute
+    top: 1rem
+    right: 1rem
+    -webkit-transform: scaleX(-1)
+    transform: scaleX(-1)
+    border-radius: 50%
+    background: rgba(178, 178, 178, 0.3)
+    z-index: 1000
+
+.full-details-card
+    // width: 100%
+    // height: auto
+    aspect-ratio: attr(width) / attr(height) !important
+
+    // <img src={img} alt="" width="500" height="500" />
+
+.card-gallery-container
+    display: flex
+    flex-wrap: wrap
+    justify-content: center
+    align-items: center

@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { useNavigate, Link } from "react-router-dom";
 import { toast } from "react-toastify";
 import axios from "axios";
@@ -37,11 +37,14 @@ const RegisterPage = () => {
     
     const navigate = useNavigate();
 
+    useEffect(() => {
+        console.log("Current Values are: ", inputState);
+    });
+
     // The following code handles changes in the DOM and syncronizes the VirtualDOM with the real DOM. This is done by creating an identical copy of the original state and then changing the specific value for the field that has been changed (target.id):
     const handleInputChange = (event) => {
         //This makes a deep copy of the previous state
         let newInputState = JSON.parse(JSON.stringify(inputState));
-        console.log(event)
         // this copies the newstate at the id of the event to the previous state 
         newInputState[event.target.id] = event.target.value;
         // this updates the new state with the updated state

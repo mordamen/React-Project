@@ -5,7 +5,6 @@ const initializeUserFields = {
         type: "text",
         sm: 4,
         required: true,
-        value:"",
     },
     middleName: {
         label: "Middle Name",
@@ -13,7 +12,6 @@ const initializeUserFields = {
         type: "text",
         sm: 4,
         required: false,
-        value:"",
     },
     lastName: {
         label: "Last Name",
@@ -21,7 +19,6 @@ const initializeUserFields = {
         type: "text",
         sm: 4,
         required: true,
-        value:"",
     },
     phone: {
         label: "Phone",
@@ -29,7 +26,6 @@ const initializeUserFields = {
         type: "tel",
         sm: 6,
         required: true,
-        value:"",
     },
     email: {
         label: "Email",
@@ -37,7 +33,6 @@ const initializeUserFields = {
         type: "email",
         sm: 6,
         required: true,
-        value:"",
     },
     password: {
         label: "Password",
@@ -45,7 +40,6 @@ const initializeUserFields = {
         type: "password",
         sm: 6,
         required: true,
-        value:"",
     },
     repeat_password: {
         label: "Repeat Password",
@@ -53,7 +47,6 @@ const initializeUserFields = {
         type: "password",
         sm: 6,
         required: true,
-        value:"",
     },
     imageAlt: {
         label: "Image Alt",
@@ -61,7 +54,6 @@ const initializeUserFields = {
         type: "text",
         sm: 6,
         required: false,
-        value:"",
     },
     imageUrl: {
         label: "Image URL",
@@ -69,7 +61,6 @@ const initializeUserFields = {
         type: "url",
         sm: 6,
         required: false,
-        value:"",
     },
     country: {
         label: "Country",
@@ -77,7 +68,6 @@ const initializeUserFields = {
         type: "text",
         sm: 4,
         required: true,
-        value:"",
     },
     state: {
         label: "State",
@@ -85,7 +75,6 @@ const initializeUserFields = {
         type: "text",
         sm: 4,
         required: false,
-        value:"",
     },
     city: {
         label: "City",
@@ -93,7 +82,6 @@ const initializeUserFields = {
         type: "text",
         sm: 4,
         required: true,
-        value:"",
     },
     street: {
         label: "Street",
@@ -101,7 +89,6 @@ const initializeUserFields = {
         type: "text",
         sm: 4,
         required: true,
-        value:"",
     },
     houseNumber: {
         label: "House Number",
@@ -109,7 +96,6 @@ const initializeUserFields = {
         type: "number",
         sm: 4,
         required: true,
-        value:"",
     },
     zipCode: {
         label: "Zip",
@@ -117,7 +103,6 @@ const initializeUserFields = {
         type: "text",
         sm: 4,
         required: false,
-        value:"",
     },
 };
 

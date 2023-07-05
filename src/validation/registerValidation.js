@@ -22,10 +22,8 @@ const registerSchema = Joi.object({
       "string.empty": 'Password cannot be empty.',
       "any.required": 'Password is required.',
     }),
-  repeat_password: Joi.any().equal(Joi.ref('password'))
-    .required()
-    .label('Confirm password')
-    .messages({ 'any.only': '{{#label}} does not match' }),
+  repeat_password: Joi.ref('password')
+    .required(),
   phone: Joi.string().min(9).max(12).required(),
   country: Joi.string().min(6).max(100),
   imageUrl: Joi.string().min(6).max(100).allow(""),
@@ -34,7 +32,7 @@ const registerSchema = Joi.object({
   city: Joi.string().min(2).max(100).required(),
   street: Joi.string().min(2).max(100).required(),
   houseNumber: Joi.string().min(1).max(100).required(),
-  zipCode: Joi.number().integer().positive().min(1).max(99999999),
+  zipCode: Joi.number().integer().positive().min(1).max(99999999).allow(""),
   biz: Joi.bool().required(),
 });
 

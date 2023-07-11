@@ -1,8 +1,8 @@
-import { useEffect, useState } from "react";
-import { useSelector } from "react-redux";
+import { useEffect, useState } from 'react';
+import { useSelector } from 'react-redux';
 /* toast */
-import { ToastContainer } from "react-toastify";
-import "react-toastify/dist/ReactToastify.css";
+import { ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 import {
     ThemeProvider,
@@ -15,10 +15,10 @@ import {
 } from '@mui/material';
 
 import Router from './routes/Router';
-import useLoggedIn from "./hooks/useLoggedIn";
-import AddCardButton from "./components/General Components/Add Card Button";
+import useLoggedIn from './hooks/useLoggedIn';
+import AddCardButton from './components/General Components/Add Card Button';
 import ResponsiveAppBar from './components/Navbar/Navbar';
-import Footer from "./components/General Components/Footer";
+import Footer from './components/General Components/Footer';
 
 // let theme = createTheme();
 // theme = responsiveFontSizes(theme);
@@ -26,12 +26,12 @@ import Footer from "./components/General Components/Footer";
 const themeMode = {
     light: {
         palette: {
-            mode: "light",
+            mode: 'light',
         },
     },
     dark: {
         palette: {
-            mode: "dark",
+            mode: 'dark',
         },
     },
 };
@@ -60,7 +60,7 @@ function App() {
         <ThemeProvider theme={theme}>
         <CssBaseline />
         <ToastContainer
-            position="top-right"
+            position='top-right'
             autoClose={3000}
             hideProgressBar={false}
             newestOnTop={true}
@@ -69,7 +69,7 @@ function App() {
             pauseOnFocusLoss
             draggable
             pauseOnHover
-            theme="colored"
+            theme='colored'
         />
         <Box
             sx={{
@@ -78,7 +78,7 @@ function App() {
             minHeight: '100vh',
             margin: 'auto',
         }}>
-            <ResponsiveAppBar component="header"  />
+            <ResponsiveAppBar component='header'  />
             <Container component='main' className='page-main' disableGutters maxWidth='false' sx={{display: 'flex', flexDirection: 'column', flex: '1', m: 'auto'}}>
                 {isLoading ?
                 <CircularProgress /> : <Router />}

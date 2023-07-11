@@ -1,6 +1,7 @@
 import Button from "@mui/material/Button";
 import { useNavigate } from "react-router-dom";
 import ROUTES from "../../routes/ROUTES";
+import CancelIcon from '@mui/icons-material/Cancel';
 
 const CancelButtonComponent = () => {
   const navigate = useNavigate();
@@ -15,6 +16,7 @@ const CancelButtonComponent = () => {
       onClick={cancelBtnClick}
       color="error"
     >
+      <CancelIcon />
       Cancel
     </Button>
   );

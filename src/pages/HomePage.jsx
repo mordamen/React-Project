@@ -10,6 +10,7 @@ import axios from "axios";
 
 import useQueryParams from "../hooks/useQueryParams";
 import CardGallery from "../components/Business Cards/Card Gallery";
+import CardSkeltonsPartial from "../components/Business Cards/Skeleton Card";
 
 
 const HomePage = () => {
@@ -72,7 +73,7 @@ const HomePage = () => {
           </Container>
         </Container>
         <Container maxWidth='false' className='cards-showcase' sx={{ display: "flex"}}>
-            {!cardsArr? "" : <CardGallery cardsArr={cardsArr} setCardsArr={setCardsArr} payload={payload}  />}
+            {!cardsArr? <CardSkeltonsPartial /> : <CardGallery cardsArr={cardsArr} setCardsArr={setCardsArr} payload={payload}  />}
         </Container>
       </Fragment>
     );

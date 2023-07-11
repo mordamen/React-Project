@@ -1,5 +1,5 @@
 import Button from "@mui/material/Button";
-import RefreshIcon from "@mui/icons-material/Refresh";
+import RestartAltIcon from '@mui/icons-material/RestartAlt';
 import PropTypes from "prop-types";
 import Typography from '@mui/material/Typography'
 
@@ -14,7 +14,7 @@ const RefreshButtonComponent = ({ handleRefreshClick }) => {
       sx={{ mt: 1, mb: 1 }}
       onClick={refreshBtnClick}
     >
-      <RefreshIcon />
+      <RestartAltIcon />
       <Typography variant="body1" color="initial">
         Reset Form
       </Typography>

@@ -101,7 +101,6 @@ const RegisterPage = () => {
         }
     }
 
-
     const handleCheckboxChange = (ev) => {
         let newInputState = JSON.parse(JSON.stringify(inputState));
         newInputState[ev.target.id] = ev.target.checked;

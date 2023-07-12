@@ -61,7 +61,6 @@ const registerSchema = Joi.object({
         'any.required': ' is required',
         }),
     repeat_password: Joi.any().equal(Joi.ref('password'))
-    .required()
     .label('Confirm password')
     .messages({ 'any.only': ' does not match' }),
     // repeat_password: Joi.any(),

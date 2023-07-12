@@ -47,12 +47,12 @@ function CardBack({ setShowFront, handleOpenFull, cardData, canEdit, handleOpenE
                         <Typography variant='body1' sx={{ fontSize: {xs: '0.5rem', sm: '0.75rem', md:'1rem'}, mx: 1 }}> {cardData.phone}</Typography>
                     </Box>
                     <Box sx={{ my: 1, display: "flex", flexDirection: "row" }}>
-                        <Typography variant='body1' sx={{ fontSize: {xs: '0.5rem', sm: '0.75rem', md:'1rem'}, fontWeight: "bold" }}>Address: </Typography>
-                        <Typography variant='body1' sx={{ fontSize: {xs: '0.5rem', sm: '0.75rem', md:'1rem'}, mx: 1 }}> {cardData.houseNumber}, {cardData.street}, {cardData.state}, {cardData.country} </Typography>
+                        <Typography variant='body1' sx={{ fontSize: {xs: '0.5rem', sm: '0.75rem', md:'1rem'}, fontWeight: "bold" }}>Email:</Typography>
+                        <Typography variant='body1' sx={{ fontSize: {xs: '0.5rem', sm: '0.75rem', md:'1rem'}, mx: 1 }}> {cardData.email}</Typography>
                     </Box>
                     <Box sx={{ my: 1, display: "flex", flexDirection: "row" }}>
-                        <Typography variant='body1' sx={{ fontSize: {xs: '0.5rem', sm: '0.75rem', md:'1rem'}, fontWeight: "bold" }}>Card Number:</Typography>
-                        <Typography variant='body1' sx={{ fontSize: {xs: '0.5rem', sm: '0.75rem', md:'1rem'}, mx: 1 }}> {cardData.bizNumber}</Typography>
+                        <Typography variant='body1' sx={{ fontSize: {xs: '0.5rem', sm: '0.75rem', md:'1rem'}, fontWeight: "bold" }}>Address: </Typography>
+                        <Typography variant='body1' sx={{ fontSize: {xs: '0.5rem', sm: '0.75rem', md:'1rem'}, mx: 1 }}> {cardData.houseNumber}, {cardData.street}, {cardData.city}, {cardData.state}, {cardData.country} </Typography>
                     </Box>
                 </CardContent>
             </CardActionArea>

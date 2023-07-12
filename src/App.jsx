@@ -82,6 +82,7 @@ function App() {
             <Container component='main' className='page-main' disableGutters maxWidth='false' sx={{display: 'flex', flexDirection: 'column', flex: '1', m: 'auto'}}>
                 {isLoading ?
                 <CircularProgress /> : <Router />}
+                {/* <Router/> */}
                 {<AddCardButton />}
             </Container> 
             <Footer />

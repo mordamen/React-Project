@@ -41,8 +41,6 @@ const BusinessCard = ({ setCardsArr, cardData, canDelete, canEdit, canLike, isOw
     
     function handleOpenEdit() {
         setOpenEdit(true);
-        console.log('current card data is: ', currentCardData)
-        console.log('Current Page is', currentPage);
     }
 
     const [openFull, setOpenFull] = useState(false);
@@ -101,26 +99,26 @@ const BusinessCard = ({ setCardsArr, cardData, canDelete, canEdit, canLike, isOw
 
     return (
         <Fragment>
-            <Box className="flippable-card-container">
-                <CSSTransition
-                    in={showFront} timeout={300} classNames='flip'
-                >
-                    <Box className="card">
-                        <CardFront 
-                            img={cardData.image.url} setShowFront={setShowFront}
-                        />
-                        <CardBack 
-                            setShowFront={setShowFront} handleOpenFull={handleOpenFull} cardData={cardData} canEdit={canEdit} handleOpenEdit={handleOpenEdit} canDelete={canDelete} handleDeleteBtnClick={handleDeleteBtnClick} isLoggedIn={isLoggedIn} likePossible={likePossible} handleLikeBtnClick={handleLikeBtnClick} handleDislikeBtnClick={handleDislikeBtnClick} isOwnedBySelf={isOwnedBySelf}
-                        />
-                    </Box>
-                </CSSTransition>
-            </Box>
-            <EditCard
-                openEdit={openEdit} setOpenEdit={setOpenEdit} cardData={currentCardData} setCardsArr={setCardsArr}
-            />
-            <FullCard 
-                openFull={openFull} handleClose={handleCloseFull} cardData={cardData}
-            />
+        <Box className="flippable-card-container" sx={{width: { xs: 270, sm: 360, md: 480 }, height: { xs: 180, sm: 240, md: 320 }, m: 'auto'}}>
+            <CSSTransition
+                in={showFront} timeout={300} classNames='flip'
+            >
+                <Box className="card">
+                    <CardFront 
+                        img={cardData.image.url} setShowFront={setShowFront}
+                    />
+                    <CardBack 
+                        setShowFront={setShowFront} handleOpenFull={handleOpenFull} cardData={cardData} canEdit={canEdit} handleOpenEdit={handleOpenEdit} canDelete={canDelete} handleDeleteBtnClick={handleDeleteBtnClick} isLoggedIn={isLoggedIn} likePossible={likePossible} handleLikeBtnClick={handleLikeBtnClick} handleDislikeBtnClick={handleDislikeBtnClick} isOwnedBySelf={isOwnedBySelf}
+                    />
+                </Box>
+            </CSSTransition>
+        </Box>
+        <EditCard
+            openEdit={openEdit} setOpenEdit={setOpenEdit} cardData={currentCardData} setCardsArr={setCardsArr}
+        />
+        <FullCard 
+            openFull={openFull} handleClose={handleCloseFull} cardData={cardData}
+        />
         </Fragment>
     );
 }

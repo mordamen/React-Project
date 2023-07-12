@@ -42,40 +42,39 @@ const RegisterPage = () => {
         console.log('Current errorState is: ', errorState);
     });
 
+    // Function to validate the repeat_password field
+    const validateRepeatPassword = (password, repeatPassword) => {
+    if (password !== repeatPassword) {
+        return 'Passwords do not match';
+    }
+    return '';
+    };
+
     // The following code handles changes in the DOM and syncronizes the VirtualDOM with the real DOM. This is done by creating an identical copy of the original state and then changing the specific value for the field that has been changed (target.id):
-    
-    // const handleInputChange = (event) => {
-    //     setInputState((prevInputState) => ({
-    //         ...prevInputState,
-    //         [event.target.id]: event.target.value,
-    //     }));
-
-    //     const fieldValidationResult = validateRegisterFieldFromSchema(event.target.value, event.target.id);
-    //     setErrorState((prevErrorState) => ({
-    //         ...prevErrorState,
-    //         [event.target.id]: fieldValidationResult[event.target.id],
-    //     }));
-
-    //     const isValidField = !fieldValidationResult[event.target.id] || fieldValidationResult[event.target.id].length === 0;
-
-    //     setValidationStatus((prevStatus) => ({
-    //         ...prevStatus,
-    //         [event.target.id]: isValidField,
-    //     }));
-    // };
 
     const handleInputChange = (event) => {
         const { id, value } = event.target;
+
         setInputState((prevInputState) => ({
             ...prevInputState,
             [id]: value,
-        }));
-        
-        const fieldValidationResult = validateRegisterFieldFromSchema(value, id);
-        setErrorState((prevErrorState) => ({
+            }));
+
+        if (id === 'repeat_password') {
+            const repeatPasswordValidationResult = validateRepeatPassword(inputState.password, value);
+
+            setErrorState((prevErrorState) => ({
+            ...prevErrorState,
+            repeat_password: repeatPasswordValidationResult,})
+            );
+        } else {
+            const fieldValidationResult = validateRegisterFieldFromSchema(value, id);
+
+            setErrorState((prevErrorState) => ({
             ...prevErrorState,
             [id]: fieldValidationResult[id],
-        }));
+            }));
+        }
     };
 
 

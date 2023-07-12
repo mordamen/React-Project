@@ -77,7 +77,7 @@ const AvatarMenu = () => {
             }
         }
         catch(err){}
-    })();
+        })();
         
     }, [payload]);
 

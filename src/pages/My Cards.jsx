@@ -1,6 +1,5 @@
 import {
     Container,
-    CircularProgress,
     Typography,
 } from "@mui/material";
 
@@ -11,7 +10,7 @@ import axios from "axios";
 
 import useQueryParams from "../hooks/useQueryParams";
 import CardGallery from "../components/Business Cards/Card Gallery";
-import CardSkeltonsPartial from "../components/Business Cards/Skeleton Card";
+import CardPreview from "../components/Business Cards/Skeleton Card";
 
 const HomePage = () => {
     const [originalCardsArr, setOriginalCardsArr] = useState(null);
@@ -67,7 +66,7 @@ const HomePage = () => {
                 </Typography> 
             </Container>
             <Container maxWidth='false' className='cards-showcase' sx={{ display: "flex"}}>
-                {!cardsArr? <CardSkeltonsPartial /> : <CardGallery cardsArr={cardsArr} setCardsArr={setCardsArr} payload={payload}  />}
+                {!cardsArr? <CardPreview /> : <CardGallery cardsArr={cardsArr} setCardsArr={setCardsArr} payload={payload}  />}
             </Container>
         </Fragment>
         

@@ -1,8 +1,7 @@
 import { AppBar, Box, Container, Dialog, IconButton, Slide, Toolbar, Typography } from "@mui/material";
 import { forwardRef } from "react";
-
-
 import CloseIcon from '@mui/icons-material/Close';
+import Grid from "@mui/material/Unstable_Grid2";
 
 const Transition = forwardRef((props, ref) => {
     return <Slide direction="up" ref={ref} {...props} />;
@@ -18,7 +17,7 @@ function FullCard({openFull, handleClose, cardData}) {
             TransitionComponent={Transition}
         >
             <AppBar sx={{ position: 'relative'}} color='secondary'>
-                <Toolbar sx={{flexDirection: 'row'}}>
+                <Toolbar sx={{my: 'auto'}}>
                     <IconButton
                         edge="start"
                         color="inherit"
@@ -30,34 +29,76 @@ function FullCard({openFull, handleClose, cardData}) {
                     <Typography sx={{ ml: 2}} variant="h5">
                         {cardData.title}
                     </Typography>
+                    <Typography sx={{ mt: 1, ml: 1, fontSize: '1rem'}}>
+                        {cardData.subTitle}
+                    </Typography>
                 </Toolbar>
             </AppBar>
-            <Container maxWidth={"md"} sx={{ m:'auto' }}>
+            <Container maxWidth={"md"} sx={{ m:'auto', flexGrow: 1}}>
                 <Box  sx={{
                     backgroundImage: `url(${cardData.image.url})`,
                     backgroundSize: "contain",
                     backgroundPosition: "center",
                     backgroundRepeat: 'no-repeat',
-                    height: '25rem',
+                    height: '15rem',
                     m: '2rem'
                 }} />
-                <Typography sx={{ my: 1 }}>{cardData.description}</Typography>
-                <Box sx={{ my: 1, display: "flex", flexDirection: "row" }}>
-                    <Typography sx={{ fontWeight: "bold" }}>Industry: </Typography>
-                    <Typography sx={{ mx: 1 }}> {cardData.subTitle}</Typography>
-                </Box>
-                <Box sx={{ my: 1, display: "flex", flexDirection: "row" }}>
-                    <Typography sx={{ fontWeight: "bold" }}>Phone Number:</Typography>
-                    <Typography sx={{ mx: 1 }}> {cardData.phone}</Typography>
-                </Box>
-                <Box sx={{ my: 1, display: "flex", flexDirection: "row" }}>
-                    <Typography sx={{ fontWeight: "bold" }}>Address: </Typography>
-                    <Typography sx={{ mx: 1 }}> {cardData.houseNumber}, {cardData.street}, {cardData.state}, {cardData.country} </Typography>
-                </Box>
-                <Box sx={{ my: 1, display: "flex", flexDirection: "row" }}>
-                    <Typography sx={{ fontWeight: "bold" }}>Card Number:</Typography>
-                    <Typography sx={{ mx: 1 }}> {cardData.bizNumber}</Typography>
-                </Box>
+                    <Grid container justifyContent='space-evenly' sx={{ flexGrow: 1 }}>
+                        <Grid xs={12}>
+                            <Typography sx={{ m: 'auto' }}>{cardData.description}</Typography>
+                        </Grid>
+                        <Grid xs={12}>
+                            <Typography sx={{ my: 1, fontSize: '1.5rem'}}>Communications: </Typography>
+                        </Grid>
+                        <Grid xs={12} sm={6} >
+                            <Box sx={{ my: 1, display: "flex", flexDirection: "row" }}>
+                                <Typography sx={{ fontWeight: "bold" }}>Email:</Typography>
+                                <Typography sx={{ mx: 1 }}> {cardData.email}</Typography>
+                            </Box>
+                        </Grid>
+                        <Grid xs={12} sm={6} >
+                            <Box sx={{ my: 1, display: "flex", flexDirection: "row" }}>
+                                <Typography sx={{ fontWeight: "bold" }}>Phone Number:</Typography>
+                                <Typography sx={{ mx: 1 }}> {cardData.phone}</Typography>
+                            </Box>
+                        </Grid>
+                        <Grid xs={12} >
+                            <Box sx={{ my: 1, display: "flex", flexDirection: "row" }}>
+                                <Typography sx={{ fontWeight: "bold" }}>Website:</Typography>
+                                <Typography sx={{ mx: 1 }}> {cardData.web}</Typography>
+                            </Box>
+                        </Grid>
+                        <Grid xs={12}>
+                            <Typography sx={{ my: 1, fontSize: '1.5rem' }}>Location: </Typography>
+                        </Grid>
+                        <Grid xs={12} sm={6}>
+                            <Box sx={{ my: 1, display: "flex", flexDirection: "row" }}>
+                                <Typography sx={{ fontWeight: "bold" }}>Country:</Typography>
+                                <Typography sx={{ mx: 1 }}> {cardData.country}, {cardData.state}</Typography>
+                            </Box>
+                        </Grid>
+                        <Grid xs={12} sm={6}>
+                            <Box sx={{ my: 1, display: "flex", flexDirection: "row" }}>
+                                <Typography sx={{ fontWeight: "bold" }}>Address:</Typography>
+                                <Typography sx={{ mx: 1 }}> {cardData.houseNumber}, {cardData.street}</Typography>
+                            </Box>
+                        </Grid>
+                        <Grid xs={12}>
+                            <Box sx={{ my: 1, display: "flex", flexDirection: "row" }}>
+                                <Typography sx={{ fontWeight: "bold" }}>Zip Code:</Typography>
+                                <Typography sx={{ mx: 1 }}> {cardData.zip} </Typography>
+                            </Box>
+                        </Grid>
+                        <Grid xs={12}>
+                            <Typography sx={{ my: 1, fontSize: '1.5rem' }}>Other: </Typography>
+                        </Grid>
+                        <Grid xs={12}>
+                            <Box sx={{ my: 1, display: "flex", flexDirection: "row" }}>
+                                <Typography sx={{ fontWeight: "bold" }}>Card Number:</Typography>
+                                <Typography sx={{ mx: 1 }}> {cardData.bizNumber} </Typography>
+                            </Box>
+                        </Grid>
+                    </Grid>
             </Container>
         </Dialog>
     )

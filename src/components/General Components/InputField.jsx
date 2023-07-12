@@ -11,15 +11,15 @@ const InputField = ({ inputState, helperText, cols, onChange, showErrors, ...pro
 
     return (
         <Grid item xs={cols}>
-        <TextField
-            variant='outlined'
-            error={(touched || showErrors) && !!helperText}
-            helperText={helperText || ' '}
-            fullWidth
-            value={inputState}
-            onChange={handleInputChange}
-            {...props}
-        />
+            <TextField
+                variant='outlined'
+                error={(touched || showErrors) && !!helperText}
+                helperText={helperText || ' '}
+                fullWidth
+                value={inputState}
+                onChange={handleInputChange}
+                {...props}
+            />
         </Grid>
     );
 };

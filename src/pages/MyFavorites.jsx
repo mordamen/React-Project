@@ -11,6 +11,7 @@ import axios from "axios";
 
 import useQueryParams from "../hooks/useQueryParams";
 import CardGallery from "../components/Business Cards/Card Gallery";
+import CardSkeltonsPartial from "../components/Business Cards/Skeleton Card";
 
 const FavoritesPage = () => {
     const [originalCardsArr, setOriginalCardsArr] = useState(null);
@@ -59,10 +60,6 @@ const FavoritesPage = () => {
             });
     }, [originalCardsArr, qparams.filter]);
 
-    if (!cardsArr) {
-        return <CircularProgress />;
-    }
-
     return (
 
         <Fragment>
@@ -70,9 +67,9 @@ const FavoritesPage = () => {
                 <Typography> Welcome to the "Favorite Cards" page, your personal collection of handpicked business cards. Here, you can easily curate and save your favorite cards for quick access and effortless organization. Take control of your networking endeavors by creating a tailored assortment of top-notch business representations. With just a few clicks, you can assemble a go-to selection of standout designs, ensuring that you never miss an opportunity to showcase your preferred contacts. Simplify your business card management and enjoy the convenience of having your favorite cards readily available, allowing you to effortlessly connect and stay in touch with the key players in your professional network.
                 </Typography> 
             </Container>
-            <Container maxWidth='false' sx={{ display: "flex", m:'auto', height: 1}}>
-                <CardGallery cardsArr={cardsArr} setCardsArr={setCardsArr} payload={payload} />
-        </Container>
+            <Container maxWidth='false' className='cards-showcase' sx={{ display: "flex"}}>
+                {!cardsArr? <CardSkeltonsPartial /> : <CardGallery cardsArr={cardsArr} setCardsArr={setCardsArr} payload={payload}  />}
+            </Container>
         </Fragment>
     );
 };

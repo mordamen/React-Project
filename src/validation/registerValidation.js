@@ -60,11 +60,11 @@ const registerSchema = Joi.object({
         'string.empty': ' cannot be empty',
         'any.required': ' is required',
         }),
-    // repeat_password: Joi.valid(Joi.ref('password'))
-    //     .messages({
-    //     'any.only': 'The two passwords do not match',
-    //     }),
-    repeat_password: Joi.any(),
+    repeat_password: Joi.any().equal(Joi.ref('password'))
+    .required()
+    .label('Confirm password')
+    .messages({ 'any.only': ' does not match' }),
+    // repeat_password: Joi.any(),
     phone: Joi.string()
         .min(9)
         .max(12)

@@ -20,8 +20,8 @@ import store from "./store/bigPie";
 import axios from "axios";
 
 /* axios */
-// axios.defaults.baseURL = "/api";
-axios.defaults.baseURL = `${process.env.REACT_APP_PROXY}/api`;
+axios.defaults.baseURL = "/api";
+// axios.defaults.baseURL = `${process.env.REACT_APP_PROXY}/api`;
 
 axios.interceptors.request.use((config) => {
   const token = localStorage.getItem("token");

@@ -10,7 +10,6 @@ import TextBlocks from '../components/General Components/Text Blocks';
 import FieldButtons from '../components/Buttons/Field Buttons';
 
 import {
-    Avatar,
     FormControlLabel,
     Checkbox,
     Grid,
@@ -20,7 +19,6 @@ import {
     Paper,
 } from '@mui/material';
 
-import LockOutlinedIcon from '@mui/icons-material/LockOutlined';
 import initializeUserFields from '../utilities/initializeUserFields';
 
 

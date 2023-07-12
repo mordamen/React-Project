@@ -1,6 +1,6 @@
 import { Grid, TextField } from '@mui/material';
 import PropTypes from 'prop-types';
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 
 const InputField = ({ inputState, helperText, cols, onChange, showErrors, ...props }) => {
     const [touched, setTouched] = useState(false);

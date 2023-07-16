@@ -11,7 +11,7 @@ function ResponsiveAppBar() {
                 <Toolbar disableGutters sx={{mx: 5}} >
                     <MobileNav />
                     <PCNav />
-                    {/* <NavSettings /> */}
+                    <NavSettings />
                 </Toolbar>
         </AppBar> 
     );

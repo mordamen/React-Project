@@ -11,10 +11,26 @@ function ResponsiveAppBar() {
                 <Toolbar disableGutters sx={{mx: 5}} >
                     <MobileNav />
                     <PCNav />
-                    <NavSettings />
+                    {/* <NavSettings /> */}
                 </Toolbar>
         </AppBar> 
     );
 };
 
 export default ResponsiveAppBar;
+
+// Navbar REstructure: 
+//  On PC: 
+//      * Site Logo
+//      * Navlinks
+//      Empty Space
+//      * Searchbar
+//      * Dark/Light Mode Picker
+//      * Navlinks / Avatar Links
+
+//  On Mobile: 
+//      * Hamburger (Navlinks)
+//      Empty Space
+//      * Site Logo
+//      Empty Space
+//      * Hamburger (Drawer - Navlinks) / Avatar (Drawer - Navlinks)

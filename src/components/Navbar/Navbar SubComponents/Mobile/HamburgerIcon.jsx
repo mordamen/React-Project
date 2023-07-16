@@ -32,7 +32,7 @@ const MobileMenu = () => {
             onClick={handleOpenNavMenu}
             color="inherit"
             >
-            <MenuIcon />
+                <MenuIcon />
             </IconButton>
             <Menu
             id="menu-appbar"
@@ -52,7 +52,7 @@ const MobileMenu = () => {
                 display: { xs: 'block', md: 'none' },
             }}
             >
-            <PageLinks isMenuOrLink="false" />
+                <PageLinks isMenuOrLink="false" />
             </Menu>
         </Box>
     );

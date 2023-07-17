@@ -11,7 +11,7 @@ const CardPreview = () => {
             <Box>
                 <Skeleton
                 animation="wave"
-                variant="rectangular"
+                variant="rounded"
                 sx={{
                     bgcolor: 'grey.900',
                     width: { xs: 270, sm: 360, md: 480 }, height: { xs: 180, sm: 240, md: 320},

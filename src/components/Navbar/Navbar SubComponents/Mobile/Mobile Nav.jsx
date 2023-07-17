@@ -17,7 +17,7 @@ function MobileNav() {
         <Fragment>
             <MobileMenu />
             <MobileSiteBranding />
-            {/* <ResponsiveDrawer /> */}
+            <ResponsiveDrawer />
         </Fragment>
     )
 }

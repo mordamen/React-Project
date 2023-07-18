@@ -21,7 +21,7 @@ const NavSettings = () => {
     };
 
     return (
-        <Box sx={{ display: 'flex', flexDirection: 'row', flexGrow: 0,}}>
+        <Box sx={{ display: { xs: 'none', md: 'flex' }, flexDirection: 'row', flexGrow: 0,}}>
             <SearchPartial />
             <Tooltip title="Change Color Theme">
                 <IconButton onClick={changeTheme} sx={{m: 'auto', display: { xs: 'none', md: 'flex' }}}>

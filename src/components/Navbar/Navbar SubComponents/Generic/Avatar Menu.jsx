@@ -113,7 +113,6 @@ const AvatarMenu = () => {
                         page.url === ROUTES.HOME ? (
                         <NavLinkComponent key={page.url} isMenuOrLink="true" handleCloseMenu={handleCloseUserMenu} {...page} onClick={logoutClick} />
                         ) : <NavLinkComponent key={page.url} isMenuOrLink="true" handleCloseMenu={handleCloseUserMenu} {...page} />)}
-                    
                 </Menu>
             </Fragment> :
                 notLoggedInPages.map((page) => 

@@ -2,6 +2,7 @@ import { Fragment } from "react";
 
 import PCSiteBranding from "./PC Site Branding";
 import PageLinks from "./PageLinks";
+import NavSettings from "../Generic/NavBar Functions";
 
 function PCNav() {
 
@@ -11,6 +12,7 @@ function PCNav() {
             <PageLinks
                 smallScreen='none' 
                 mediumScreen='flex'/>
+            <NavSettings />
         </Fragment>
     )
 }

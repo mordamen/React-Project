@@ -13,7 +13,6 @@ const PCSiteBranding = () => {
 
     return (
         <Button aria-label="logo" onClick={handleLogoClick} sx={{display: { xs: 'none', md: 'flex' }, m:'auto'}} > 
-            {/* <AdbIcon sx={{display: { xs: 'none', md: 'flex' }}}/> */}
             <Box
                 component="img"
                 sx={{
@@ -33,7 +32,6 @@ const PCSiteBranding = () => {
                 component="a"
                 sx={{
                 mx: 1,
-                // m: 'auto',
                 display: { xs: 'none', md: 'flex' },
                 flexGrow: 1,
                 fontFamily: 'monospace',

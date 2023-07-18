@@ -7,11 +7,10 @@ import NavSettings from './Navbar SubComponents/Generic/NavBar Functions';
 function ResponsiveAppBar() {
 
     return (
-        <AppBar className='page-header' position="static" sx={{ width:'100%'}}>
+        <AppBar position="static" sx={{ width:'100%'}}>
                 <Toolbar disableGutters sx={{mx: 5}} >
                     <MobileNav />
                     <PCNav />
-                    <NavSettings />
                 </Toolbar>
         </AppBar> 
     );

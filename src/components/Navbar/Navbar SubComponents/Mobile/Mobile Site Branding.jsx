@@ -20,7 +20,7 @@ const MobileSiteBranding = () => {
                 noWrap
                 component="a"
                 sx={{
-                mr: 2,
+                // mr: 2,
                 display: { xs: 'flex', md: 'none' },
                 flexGrow: 1,
                 fontFamily: 'monospace',

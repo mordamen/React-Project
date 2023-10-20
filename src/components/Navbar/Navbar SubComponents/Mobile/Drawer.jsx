@@ -1,5 +1,4 @@
 import Box from '@mui/material/Box';
-import CssBaseline from '@mui/material/CssBaseline';
 import IconButton from '@mui/material/IconButton';
 import { Avatar, SwipeableDrawer } from '@mui/material';
 import { useEffect, useState } from 'react';
@@ -38,13 +37,12 @@ const ResponsiveDrawer = () => {
 
     return (
         <Box sx={{ display: { xs: 'flex', sm: 'none' }, }}>
-            <CssBaseline />
             <IconButton
                 color="inherit"
                 aria-label="open drawer"
                 edge="start"
                 onClick={handleDrawerToggle}
-                sx={{ mr: 2, display: { sm: 'none' } }}
+                sx={{ display: { sm: 'none' } }}
             >
                 <Avatar src={avatarURL} />
             </IconButton>
@@ -52,20 +50,17 @@ const ResponsiveDrawer = () => {
                 sx={{ width: { sm: drawerWidth }, flexShrink: { sm: 0 } }}
                 aria-label="navlinks"
             >
-                {/* The implementation can be swapped with js to avoid SEO duplication of links. */}
                 <SwipeableDrawer
-                anchor='right'
-                variant="temporary"
-                open={mobileOpen}
-                onClose={handleDrawerToggle}
-                onOpen={handleDrawerToggle}
-                ModalProps={{
-                    keepMounted: true, // Better open performance on mobile.
-                }}
-                sx={{
-                    display: { xs: 'block', sm: 'none' },
-                    '& .MuiDrawer-paper': { boxSizing: 'border-box', width: drawerWidth },
-                }}
+                    anchor='right'
+                    variant="temporary"
+                    open={mobileOpen}
+                    onClose={handleDrawerToggle}
+                    onOpen={handleDrawerToggle}
+                    ModalProps={{ keepMounted: true, /* Better open performance on mobile.*/}}
+                    sx={{
+                        display: { xs: 'block', sm: 'none' },
+                        '& .MuiDrawer-paper': { boxSizing: 'border-box', width: drawerWidth },
+                    }}
                 >
                     <DrawerContent />
                 </SwipeableDrawer>

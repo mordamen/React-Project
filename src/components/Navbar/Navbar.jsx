@@ -8,7 +8,7 @@ function ResponsiveAppBar() {
 
     return (
         <AppBar position="static" sx={{ width:'100%'}}>
-                <Toolbar disableGutters sx={{mx: 5}} >
+                <Toolbar disableGutters  >
                     <MobileNav />
                     <PCNav />
                 </Toolbar>

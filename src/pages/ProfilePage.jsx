@@ -40,6 +40,7 @@ const ProfilePage = () => {
 
 	const handleInputChange = (event) => {
 		const { id, value } = event.target;
+		console.log('🚀 ~ handleInputChange ~ id, value:', id, value);
 
 		setInputState((prevState) => ({
 			...prevState,
@@ -110,7 +111,7 @@ const ProfilePage = () => {
 							inputState={inputState}
 							errorState={errorState}
 							showErrors={showErrors}
-							onChange={handleInputChange}
+							handleInputChange={handleInputChange}
 						/>
 					</Box>
 					<FieldButtons

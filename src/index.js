@@ -27,11 +27,8 @@ axios.interceptors.request.use((config) => {
 	const token = localStorage.getItem('token');
 	if (token) {
 		/*
-      if the token exists in localStorage
-      this mean that the user logged in and
-      we want to send the token in the headers with each request
-      that was send
-    */
+		if the token exists in localStorage this mean that the user logged in and we want to send the token in the headers with each request that was send
+	*/
 		config.headers['x-auth-token'] = token;
 	}
 	return config; // send the new data

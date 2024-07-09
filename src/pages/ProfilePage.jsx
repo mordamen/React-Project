@@ -7,6 +7,7 @@ import Box from '@mui/material/Box';
 import EditIcon from '@mui/icons-material/Edit';
 import Typography from '@mui/material/Typography';
 import Container from '@mui/material/Container';
+import Paper from '@mui/material/Paper';
 import ROUTES from '../routes/ROUTES';
 import useLoggedIn from '../hooks/useLoggedIn';
 import TextBlocks from '../components/General Components/Text Blocks';
@@ -14,80 +15,73 @@ import initializeUserFields from '../utilities/initializeUserFields';
 import initialUserInputState from '../utilities/initialUserInputState';
 import validateRegisterFieldFromSchema, { validateRegisterSchema } from '../validation/registerValidation';
 import FieldButtons from '../components/Buttons/Field Buttons';
-import { Paper } from '@mui/material';
 
 const ProfilePage = () => {
-	const initialErrorState = {};
-
-	// This function handles the state for each input field:
 	const [inputState, setInputState] = useState(initialUserInputState);
-	// This function handles the state for each error field:
-	const [errorState, setErrorState] = useState(initialErrorState);
-	// This function handles the state for each error field when the Register button is clicked:
+	const [errorState, setErrorState] = useState({});
 	const [showErrors, setShowErrors] = useState(false);
 
 	const navigate = useNavigate();
 	const loggedIn = useLoggedIn();
 
 	useEffect(() => {
-		// Fetch user data
-		(async () => {
+		const fetchUserData = async () => {
 			try {
 				const { data } = await axios.get('/users/userInfo');
 				setInputState(data);
 			} catch (err) {
-				console.log(err);
+				console.error(err);
 				toast.error('Failed to load Profile data');
 			}
-		})();
+		};
+
+		fetchUserData();
 	}, []);
 
-	// const validateForm = () => {
-	//     // Validate the form by checking if all required fields have values and no form errors exist
-	//     for (const field of registerFieldsArray) {
-	//         if (field.name !== 'password' && field.required && (!formData[field.name] || formError[field.name])) {
-	//             return false;
-	//         }
-	//     }
-	//     return true;
-	// };
-
 	const handleInputChange = (event) => {
-		//This makes a deep copy of the previous state
-		let newInputState = JSON.parse(JSON.stringify(inputState));
-		console.log(event);
-		// this copies the newstate at the id of the event to the previous state
-		newInputState[event.target.id] = event.target.value;
-		// this updates the new state with the updated state
-		setInputState(newInputState);
+		const { id, value } = event.target;
 
-		let fieldValidationResult = validateRegisterFieldFromSchema(event.target.value, event.target.id);
-		let newErrorState = JSON.parse(JSON.stringify(errorState));
-		newErrorState[event.target.id] = fieldValidationResult[event.target.id];
-		setErrorState(newErrorState);
+		setInputState((prevState) => ({
+			...prevState,
+			[id]: value,
+		}));
+
+		const fieldValidationResult = validateRegisterFieldFromSchema(value, id);
+
+		setErrorState((prevState) => ({
+			...prevState,
+			[id]: fieldValidationResult[id],
+		}));
 	};
 
 	const handleSubmit = async (ev) => {
-		try {
-			const joiResponse = validateRegisterSchema(inputState);
+		ev.preventDefault();
+		const joiResponse = validateRegisterSchema(inputState);
+
+		if (joiResponse) {
 			setErrorState(joiResponse);
-			if (joiResponse) {
-				return;
-			}
-			let res = await axios.put('users/userInfo', inputState);
-			localStorage.setItem('token', res.data.token);
+			setShowErrors(true);
+			return;
+		}
+
+		try {
+			const { data } = await axios.put('users/userInfo', inputState);
+			localStorage.setItem('token', data.token);
 			loggedIn();
 			navigate(ROUTES.HOME);
 		} catch (err) {
-			if (err.response.status === 500) {
+			if (err.response?.status === 500) {
 				toast.error('Error when updating profile, Cannot update profile due to email already being taken');
+			} else {
+				toast.error('An error occurred');
 			}
 		}
 	};
 
-	const handleRefreshClick = (ev) => {
+	const handleRefreshClick = () => {
 		setInputState(initialUserInputState);
-		setErrorState(initialErrorState);
+		setErrorState({});
+		setShowErrors(false);
 	};
 
 	return (

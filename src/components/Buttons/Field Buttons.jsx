@@ -4,7 +4,7 @@ import RefreshButtonComponent from './Refresh Button';
 import SignUpButton from './Sign Up Button';
 import { Grid } from '@mui/material';
 
-const FieldButtons = ({ onRefreshClick, onSubmitClick }) => {
+const FieldButtons = ({ onRefreshClick, onSubmitClick, label }) => {
 	const handleRefreshClick = (event) => {
 		onRefreshClick(event);
 	};
@@ -24,7 +24,7 @@ const FieldButtons = ({ onRefreshClick, onSubmitClick }) => {
 					<RefreshButtonComponent handleRefreshClick={handleRefreshClick} />
 				</Grid>
 			</Grid>
-			<SignUpButton handleRegisterClick={handleButtonClick} />
+			<SignUpButton handleRegisterClick={handleButtonClick} label={label} />
 		</Fragment>
 	);
 };
